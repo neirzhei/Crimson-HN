@@ -1,0 +1,302 @@
+*,
+*::before,
+*::after {
+  border-radius: 0 !important;
+  box-sizing: border-box !important;
+}
+
+html,
+body {
+  background-color: #000000 !important;
+  color: #e2e2e2 !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1.65 !important;
+  -webkit-font-smoothing: antialiased !important;
+}
+
+/* Layout Table Adjustment */
+table#hnmain {
+  width: 100% !important;
+  max-width: 960px !important;
+  margin: 0 auto !important;
+  background-color: #000000 !important;
+  border: none !important;
+}
+
+/* Hide legacy topbar & forms */
+table#hnmain>tbody>tr:first-child,
+form,
+textarea,
+input,
+.voter,
+.votearrow {
+  display: none !important;
+}
+
+/* ==========================================================================
+   Header Navigation
+   ========================================================================== */
+.hn-reader-header {
+  background-color: #050505;
+  border-bottom: 2px solid #dc143c;
+  padding: 14px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.95);
+}
+
+.hn-header-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hn-brand {
+  display: flex;
+  align-items: center;
+}
+
+.hn-logo-badge {
+  background-color: #dc143c;
+  color: #ffffff !important;
+  font-weight: 900;
+  font-size: 16px;
+  padding: 4px 10px;
+  text-decoration: none !important;
+  letter-spacing: -0.5px;
+}
+
+.hn-nav {
+  display: flex;
+  gap: 8px;
+}
+
+.hn-nav-link {
+  color: #888888 !important;
+  text-decoration: none !important;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 12px;
+  background: #0a0a0a;
+  border: 1px solid #222222;
+  transition: all 0.15s ease;
+  text-transform: uppercase;
+}
+
+.hn-nav-link:hover {
+  background-color: #dc143c;
+  color: #ffffff !important;
+  border-color: #dc143c;
+}
+
+/* ==========================================================================
+   Feed & Story Cards
+   ========================================================================== */
+.hn-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px 0;
+}
+
+.hn-story-card {
+  background-color: #080808;
+  border: 1px solid #222222;
+  padding: 18px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.hn-story-card:hover {
+  border-color: #dc143c;
+  background-color: #0d0d0d;
+}
+
+.hn-main-article-card {
+  cursor: default;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  background-color: #0b0b0b;
+  border: 2px solid #333333;
+}
+
+.hn-main-article-card:hover {
+  border-color: #333333;
+}
+
+.hn-story-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.hn-story-title-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.hn-story-title {
+  color: #ffffff !important;
+  font-size: 19px !important;
+  font-weight: 600;
+  line-height: 1.4;
+  text-decoration: none !important;
+}
+
+.hn-story-title.large {
+  font-size: 23px !important;
+}
+
+.hn-story-title:visited {
+  color: #888888 !important;
+}
+
+.hn-story-title:hover {
+  color: #dc143c !important;
+  text-decoration: underline !important;
+}
+
+.hn-story-domain {
+  font-size: 12px;
+  color: #666666;
+  background: #111111;
+  border: 1px solid #222222;
+  padding: 2px 8px;
+  font-family: SFMono-Regular, Consolas, monospace;
+}
+
+.hn-story-meta {
+  font-size: 13.5px;
+  color: #888888;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hn-dot {
+  color: #333333;
+}
+
+.hn-crimson-text {
+  color: #dc143c;
+  font-weight: 700;
+}
+
+/* More Button Pagination */
+.hn-more-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: #0d0d0d;
+  color: #ffffff !important;
+  border: 1px solid #dc143c;
+  padding: 14px;
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-decoration: none !important;
+  margin-top: 16px;
+  transition: all 0.15s ease;
+}
+
+.hn-more-btn:hover {
+  background: #dc143c;
+  color: #ffffff !important;
+}
+
+/* ==========================================================================
+   Comments Section & Visual Thread Tree
+   ========================================================================== */
+.hn-comments-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 50px;
+}
+
+.hn-comment-card {
+  padding: 16px;
+  cursor: pointer;
+  user-select: none;
+  transition: border-color 0.15s ease, opacity 0.15s ease;
+}
+
+/* Root Main Comment */
+.hn-comment-card.is-root {
+  background-color: #0a0a0a;
+  border: 1px solid #2a2a2a;
+  border-left: 5px solid #dc143c !important;
+  margin-top: 16px;
+}
+
+.hn-comment-card.is-root:hover {
+  border-color: #444444;
+  border-left-color: #dc143c !important;
+}
+
+/* Replies */
+.hn-comment-card.is-reply {
+  background-color: #040404;
+  border: 1px solid #1a1a1a;
+  border-left: 3px solid #333333 !important;
+  margin-top: 4px;
+}
+
+.hn-comment-card.is-reply:hover {
+  border-left-color: #dc143c !important;
+  border-color: #2c2c2c;
+}
+
+/* Collapsed State */
+.hn-comment-card.is-collapsed {
+  opacity: 0.5;
+  padding-bottom: 10px;
+  background-color: #020202;
+}
+
+.hn-comment-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.hn-comment-author {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.hn-comment-time {
+  color: #666666;
+  font-size: 12.5px;
+}
+
+.hn-comment-text {
+  font-size: 16px !important;
+  line-height: 1.65 !important;
+  color: #dddddd !important;
+  user-select: text;
+}
+
+.hn-comment-text a {
+  color: #dc143c !important;
+  text-decoration: underline !important;
+}
+
+.hn-comment-text pre {
+  background: #000000 !important;
+  border: 1px solid #222222 !important;
+  padding: 14px !important;
+  color: #00ff88 !important;
+  font-family: SFMono-Regular, Consolas, monospace !important;
+  font-size: 14px !important;
+  overflow-x: auto;
+}

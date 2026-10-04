@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Crimson HN Reader",
+  "version": "1.0.0",
+  "description": "Minimalist, read-only Crimson OLED interface for Hacker News with clean card interactions, full comment collapsible trees, and zero footer clutter.",
+  "host_permissions": [
+    "https://news.ycombinator.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://news.ycombinator.com/*"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_end"
+    }
+  ]
+}
