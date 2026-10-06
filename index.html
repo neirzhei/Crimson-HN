@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HACKER NEWS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="navbar">
+    <div class="logo-box" id="nav-home">
+      <h1>HACKER NEWS</h1>
+    </div>
+    <nav class="nav-links">
+      <a href="#" data-category="new">NEW</a>
+      <a href="#" data-category="past">PAST</a>
+      <a href="#" data-category="comments">COMMENTS</a>
+      <a href="#" data-category="ask">ASK</a>
+      <a href="#" data-category="show">SHOW</a>
+      <a href="#" data-category="jobs">JOBS</a>
+    </nav>
+  </header>
+
+  <!-- Main View (Story Grid) -->
+  <main id="grid-view" class="container">
+    <div id="posts-grid" class="posts-grid"></div>
+    <div id="loading" class="loading-state">LOADING...</div>
+
+    <!-- Pagination -->
+    <div id="pagination" class="pagination-bar hidden">
+      <button id="prev-btn" class="nav-btn">PREVIOUS</button>
+      <button id="more-btn" class="nav-btn">MORE</button>
+    </div>
+  </main>
+
+  <!-- Detail / Thread Screen View -->
+  <main id="thread-view" class="thread-container hidden">
+    <!-- Left Pane (~20% width or center when no link) -->
+    <aside id="thread-left-pane" class="thread-sidebar">
+      <div id="thread-post-card" class="thread-post-card"></div>
+      <div id="thread-comments" class="thread-comments-list"></div>
+    </aside>
+
+    <!-- Right Pane (~80% width iframe preview) -->
+    <section id="thread-right-pane" class="thread-web-preview">
+      <div id="iframe-banner" class="iframe-notice hidden">
+        <span>If content does not load, website may block embedded frames.</span>
+        <a id="iframe-fallback-link" href="#" target="_blank">OPEN IN NEW TAB</a>
+      </div>
+      <iframe id="web-frame" src="about:blank" frameborder="0"></iframe>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,365 @@
+:root {
+  --bg-black: #000000;
+  --card-grey: #1e1e1e;
+  --sub-grey: #2a2a2a;
+  --deep-red: #d00000;
+  --text-white: #ffffff;
+}
+
+/* DISABLE ALL ANIMATIONS AND TRANSITIONS GLOBALLY */
+*, *::before, *::after {
+  transition: none !important;
+  animation: none !important;
+  box-sizing: border-box;
+}
+
+/* TOP-LEVEL HN APP BODY ONLY */
+body.hn-app-active {
+  background-color: var(--bg-black) !important;
+  color: var(--text-white) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 100vh;
+  max-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+  overflow: hidden !important;
+}
+
+/* CUSTOM RED RECTANGLE SCROLLBAR FOR ALL FRAMES (ARTICLES IN IFRAME SCROLL FREELY) */
+::-webkit-scrollbar {
+  width: 10px !important;
+  height: 10px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-black) !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--deep-red) !important;
+  border-radius: 0px !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--deep-red) !important;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--bg-black);
+  padding: 0 0.5rem;
+  height: 42px;
+  border-bottom: 2px solid var(--bg-black);
+  position: sticky;
+  top: 0;
+  z-index: 10000;
+}
+
+/* LEFT HEADER SECTION (LOGO + SQUARE PREV/NEXT BUTTONS) */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.logo-box {
+  background-color: var(--deep-red);
+  padding: 0 10px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.logo-box h1 {
+  color: var(--bg-black);
+  font-size: 1.1rem;
+  font-weight: 900;
+  margin: 0;
+  letter-spacing: -0.5px;
+  white-space: nowrap;
+}
+
+/* SQUARE HEADER NAV BUTTONS (< and >) */
+.header-nav-btn {
+  background-color: var(--deep-red);
+  color: var(--bg-black);
+  border: none;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 1.2rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+}
+
+.header-nav-btn:hover {
+  background-color: var(--text-white);
+  color: var(--bg-black);
+}
+
+.header-nav-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.2rem;
+  padding-right: 0.5rem;
+}
+
+.nav-links a,
+.nav-links a:visited {
+  color: var(--deep-red) !important;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--text-white) !important;
+}
+
+/* CONTAINER & 4-COLUMN x 6-ROW GRID VIEW */
+.container {
+  padding: 0.4rem;
+  height: calc(100vh - 42px);
+  display: flex;
+  flex-direction: column;
+}
+
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 0.4rem;
+  height: 100%;
+}
+
+/* POST CARD */
+.card {
+  background-color: var(--card-grey);
+  padding: 0.5rem 0.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/* NO HOVER EFFECT FOR POST BOXES */
+.card:hover {
+  background-color: var(--card-grey) !important;
+}
+
+/* POST TITLE SIZE MATCHES THREAD POST TITLE (1rem) */
+.card-title {
+  color: var(--text-white);
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.25;
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 0.25rem;
+  gap: 0.4rem;
+}
+
+.badge-domain {
+  background-color: var(--bg-black);
+  color: var(--text-white);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 1px 4px;
+  max-width: 55%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.badge-poster {
+  background-color: var(--bg-black);
+  color: var(--text-white);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 1px 4px;
+  margin-bottom: 3px;
+  display: inline-block;
+}
+
+.badge-stats {
+  background-color: var(--deep-red);
+  color: var(--bg-black);
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 1px 5px;
+  white-space: nowrap;
+}
+
+/* THREAD VIEW (SPLIT SCREEN) */
+.thread-container {
+  display: flex;
+  height: calc(100vh - 42px);
+  width: 100vw;
+  overflow: hidden;
+}
+
+/* COMMENT THREAD TAKES 30% OF SCREEN */
+.thread-sidebar {
+  width: 30%;
+  background-color: var(--bg-black);
+  border-right: 2px solid var(--sub-grey);
+  overflow-y: auto;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.thread-sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+/* ARTICLE PREVIEW TAKES 70% OF SCREEN */
+.thread-web-preview {
+  width: 70%;
+  background-color: var(--text-white);
+  display: flex;
+  flex-direction: column;
+}
+
+.thread-web-preview iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* CENTER MODE (NO URL LINK) */
+.thread-container.center-mode {
+  justify-content: center;
+}
+
+.thread-container.center-mode .thread-sidebar {
+  width: 60%;
+  max-width: 800px;
+  border-right: none;
+}
+
+.thread-container.center-mode .thread-web-preview {
+  display: none;
+}
+
+/* THREAD POST HEADER CARD */
+.thread-post-card {
+  background-color: var(--card-grey);
+  padding: 0.75rem;
+}
+
+.thread-post-card .card-title {
+  font-size: 1rem;
+  cursor: pointer;
+  -webkit-line-clamp: unset;
+}
+
+.thread-post-card .card-title:hover {
+  text-decoration: underline;
+  color: var(--deep-red);
+}
+
+.thread-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.post-text-body {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin: 0.5rem 0;
+  color: var(--text-white);
+}
+
+/* COMMENT CARDS & COLLAPSIBLE THREADS */
+.thread-comments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.comment-card {
+  background-color: var(--card-grey);
+  padding: 0.8rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.comment-header {
+  margin-bottom: 0.4rem;
+}
+
+.comment-author-badge {
+  background-color: var(--deep-red);
+  color: var(--bg-black);
+  font-size: 0.8rem;
+  font-weight: 800;
+  padding: 2px 6px;
+  display: inline-block;
+  cursor: pointer;
+  user-select: none;
+}
+
+.comment-author-badge:hover {
+  background-color: var(--text-white);
+}
+
+.comment-body {
+  color: var(--text-white);
+  font-size: 1rem;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.comment-body a,
+.comment-body a:visited {
+  color: var(--deep-red) !important;
+  text-decoration: underline;
+}
+
+.nested-reply {
+  margin-left: 0.6rem;
+  margin-top: 0.5rem;
+  border-left: 2px solid var(--sub-grey);
+  padding-left: 0.5rem;
+}
+
+/* COLLAPSED COMMENT STATE */
+.comment-card.collapsed > .comment-body,
+.comment-card.collapsed > .nested-reply {
+  display: none !important;
+}
+
+.hidden {
+  display: none !important;
+}
